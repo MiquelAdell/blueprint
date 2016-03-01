@@ -1,3 +1,12 @@
+$h1-big-background-size: $font-size-h1;
+$h1-small-background-size: floor(($font-size-h1/5));
+$h1-background-position: floor(($h1-big-background-size/2));
+
+
+$h2-big-background-size: floor(($font-size-h2/5))*5;
+$h2-small-background-size: floor(($h2-big-background-size/5));
+$h2-background-position: ceil(($h2-big-background-size/-2));
+
 .brand {
     text-transform: lowercase;
 }
@@ -8,15 +17,19 @@
 
 }
 
-.fit-text-holder .char1 {
-    background-color: $brand-danger;
-}
-
-.fit-text-holder span {
-    display: block;
+.fit-text-holder {
     float: left;
-    width: 100px;
-    height: 100px;
+
+     .char1 {
+        background-color: $brand-danger;
+    }
+
+    span {
+        display: block;
+        float: left;
+        width: $h1-big-background-size;
+        height: $h1-big-background-size;
+    }
 }
 
 header {
@@ -36,18 +49,13 @@ header {
     }
 }
 
+
 h1, h2 {
     text-align: center;
     margin: 0;
     background-color: $brand-primary;
 
     padding: 0.5em 0;
-    background-size: 1em 1em, 1em 1em, 0.2em 0.2em, 0.2em 0.2em;
-    background-position: -0.5em -0.5em, -0.5em -0.5em, -0.5em -0.5em, -0.5em -0.5em;
-    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
-                      linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
-                      linear-gradient($body-bg-fadest 1px, transparent 1px),
-                      linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
 
     a {
         color: $body-bg;
@@ -59,17 +67,38 @@ h1, h2 {
             color: $body-bg;
         }
     }
+    line-height: 0.95em;
 }
 
-h1.brand {
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-    background-position: -56px -56px, -41px -41px, -56px -56px, -41px -41px;
+h1 {
+    background-size: 1px $h1-big-background-size,
+                     $h1-big-background-size 1px,
+                     1px $h1-small-background-size,
+                     $h1-small-background-size 1px;
+    background-position: 0 $h1-background-position,
+                         $h1-background-position 0,
+                         0 $h1-background-position,
+                         $h1-background-position 0;
     background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
                       linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
                       linear-gradient($body-bg-fadest 1px, transparent 1px),
                       linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
 }
 
+h2 {
+    background-size: 1px $h2-big-background-size,
+                     $h2-big-background-size 1px,
+                     1px $h2-small-background-size,
+                     $h2-small-background-size 1px;
+    background-position: 0 $h2-background-position,
+                         $h2-background-position 0,
+                         0 $h2-background-position,
+                         $h2-background-position 0;
+    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
+                      linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
+                      linear-gradient($body-bg-fadest 1px, transparent 1px),
+                      linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
+}
 
 article {
     clear: both;

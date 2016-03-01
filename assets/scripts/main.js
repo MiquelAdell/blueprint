@@ -18,8 +18,26 @@
     // All pages
     'common': {
       init: function() {
-        $.material.init();
-        $(".fit-text-holder").lettering();
+        // $.material.init(); //TODO:
+
+        $(".brand .fit-text-holder").lettering();
+
+        $('.brand .fit-text-holder').each(function(){
+            var target = $(this).closest('.brand');
+            var new_position = $('.brand .fit-text-holder').position().left-1;
+            var positions = target.css('background-position');
+            positions = positions.split(", ");
+            positions[1] = positions[1].split(" ");
+            positions[3] = positions[3].split(" ");
+            positions[1][0] = new_position+"px";
+            positions[3][0] = new_position+"px";
+            positions[1] = positions[1].join(" ");
+            positions[3] = positions[3].join(" ");
+            positions = positions.join(", ");
+            console.info(positions);
+            target.css('background-position',positions);
+        });
+
         // fitText(document.getElementById('fittext'), 1.2)
 
         // JavaScript to be fired on all pages
@@ -30,6 +48,7 @@
           };
           var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s);
         })();
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
