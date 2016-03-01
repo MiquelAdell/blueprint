@@ -26,19 +26,26 @@
   "repositories": [
     {
       "type": "composer",
-      "url": "http://wpackagist.org"
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.org"
     }
   ],
   "require": {
     "php": ">=5.4.0",
     "composer/installers": "~1.0",
+    "roots/soil": "3.6.2",
     "wpackagist-plugin/wp-migrate-db": "^0.7.2",
     "wpackagist-plugin/akismet": "^3.1",
     "wpackagist-plugin/post-type-switcher": "^1.5",
     "wpackagist-plugin/advanced-excerpt": "^4.2.3",
     "wpackagist-plugin/wordpress-importer": "^0.6.1",
     "wpackagist-plugin/html-cleanup": "^1.2",
-    "wpackagist-plugin/clean-html": "^1.1"
+    "wpackagist-plugin/clean-html": "^1.1",
+    "storm2k/sagextras": "^1.1",
+    "wpackagist-plugin/wp-optimize": "1.8.9.10"
   },
   "extra": {
     "installer-paths": {

@@ -18,8 +18,6 @@
     // All pages
     'common': {
       init: function() {
-        // $.material.init(); //TODO:
-
         $(".brand .fit-text-holder").lettering();
 
         $('.brand .fit-text-holder').each(function(){
