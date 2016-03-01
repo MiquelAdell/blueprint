@@ -5,5 +5,35 @@ $icon-font-path:        "../fonts/";
 $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
+
+
+
 // Colors
-$brand-primary:         #27ae60;
+$brand-primary:         hsl(206, 64%, 37%);
+$brand-success:         hsl(237, 100%, 81%);
+$brand-info:            hsl(237, 78%, 45%);
+$brand-warning:         hsl( 27, 36%, 48%);
+$brand-danger:          hsl( 19, 78%, 45%);
+
+
+$gray-base:              hsl(220, 0%, 0%);
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+
+
+
+$body-bg:               hsl(220, 100%, 100%);
+$body-bg-faded:         hsla(220, 100%, 100%, 0.4);
+$body-bg-fadest:        hsla(220, 100%, 100%, 0.2);
+
+$font-family-sans-serif:  "Futura", Helvetica, Arial, sans-serif;
+$font-family-serif:       "jubilat", Georgia, "Times New Roman", Times, serif;
+
+$font-size-base:          18px;
+$font-size-h1:            floor(($font-size-base * 5));
+$font-size-h2:            floor(($font-size-base * 3));
+$headings-font-family:    $font-family-sans-serif;

@@ -1,1 +1,77 @@
+.brand {
+    text-transform: lowercase;
+}
 
+.brand .holder {
+    display: table;
+       margin: 0 auto;
+
+}
+
+.fit-text-holder .char1 {
+    background-color: $brand-danger;
+}
+
+.fit-text-holder span {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+header {
+    .container-fluid {
+        padding: 0;
+    }
+
+    .updated {
+        font-family: $font-family-sans-serif;
+        margin-left: 1em;
+    }
+
+    .byline {
+        font-family: $font-family-sans-serif;
+        float: right;
+        margin-right: 1em;
+    }
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 0;
+    background-color: $brand-primary;
+
+    padding: 0.5em 0;
+    background-size: 1em 1em, 1em 1em, 0.2em 0.2em, 0.2em 0.2em;
+    background-position: -0.5em -0.5em, -0.5em -0.5em, -0.5em -0.5em, -0.5em -0.5em;
+    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
+                      linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
+                      linear-gradient($body-bg-fadest 1px, transparent 1px),
+                      linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
+
+    a {
+        color: $body-bg;
+        &:hover {
+            color: $gray-lighter;
+            text-decoration: none;
+        }
+        &:visited {
+            color: $body-bg;
+        }
+    }
+}
+
+h1.brand {
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -56px -56px, -41px -41px, -56px -56px, -41px -41px;
+    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
+                      linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
+                      linear-gradient($body-bg-fadest 1px, transparent 1px),
+                      linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
+}
+
+
+article {
+    clear: both;
+    margin: 2.5em 0;
+}
