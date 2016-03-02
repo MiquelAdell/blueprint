@@ -5,8 +5,6 @@
         <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-summary">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <?php the_excerpt(); ?>
-      </div>
+      <?php the_excerpt(); ?>
   </div>
 </article>

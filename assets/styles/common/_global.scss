@@ -56,6 +56,7 @@ h1, h2 {
     background-color: $brand-primary;
 
     padding: 0.5em 0;
+    color: $body-bg;
 
     a {
         color: $body-bg;
@@ -102,5 +103,53 @@ h2 {
 
 article {
     clear: both;
-    margin: 2.5em 0;
+
+    p, blockquote {
+        max-width: 35em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.entry-summary {
+    margin: 1em 0;
+    float: left;
+
+    p {
+        text-align: justify;
+    }
+}
+
+.comments {
+    clear: both;
+}
+
+
+.entry-content {
+    margin: 1em 0 3em 0;
+    float: left;
+    width: 100%;
+
+    p {
+        text-align: justify;
+    }
+}
+
+.comment-reply-title {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-header {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+
+/* BLOCK QUOTE */
+blockquote {
+
 }
