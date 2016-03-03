@@ -1,3 +1,20 @@
+// Mixins
+
+@mixin blueprint-background(
+    $bigSize: 50px, $smallSize: 10px, $position: -25px,
+    $color1: $brand-primary, $color2: $body-bg-faded, $color3: $body-bg-fadest
+) {
+    background-size: 1px $bigSize, $bigSize 1px, 1px $smallSize, $smallSize 1px;
+    background-position: 0 $position, $position 0, 0 $position, $position 0;
+    background-image: linear-gradient($color2 2px, transparent 2px),
+              linear-gradient(90deg, $color2 2px, transparent 2px),
+              linear-gradient($color3 1px, transparent 1px),
+              linear-gradient(90deg, $color3 1px, transparent 1px);
+    background-color: $color1;
+}
+
+// Variables
+
 $h1-big-background-size: $font-size-h1;
 $h1-small-background-size: floor(($font-size-h1/5));
 $h1-background-position: floor(($h1-big-background-size/2));
@@ -6,14 +23,64 @@ $h2-big-background-size: floor(($font-size-h2/5))*5;
 $h2-small-background-size: floor(($h2-big-background-size/5));
 $h2-background-position: ceil(($h2-big-background-size/-2));
 
-@mixin blueprint-blackground($bigSize,$smallSize,$position) {
-    background-size: 1px $bigSize, $bigSize 1px, 1px $smallSize, $smallSize 1px;
-    background-position: 0 $position, $position 0, 0 $position, $position 0;
-    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
-              linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
-              linear-gradient($body-bg-fadest 1px, transparent 1px),
-              linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
-    background-color: $brand-primary;
+
+// Placeholder selectors
+
+%brand-alternate {
+    background-color: $brand-tertiary;
+    color: $body-bg;
+    text-decoration: none;
+}
+
+%brand {
+    background-color: $brand-secondary;
+    color: $gray-base;
+    &:hover {
+        @extend %brand-alternate;
+    }
+
+    &:active {
+        @extend %brand-alternate;
+    }
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    @include blueprint-background($color2: transparent);
+    border-bottom: 2px $body-bg-faded inset;
+    font-family: $font-family-sans-serif;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: $body-bg;
+    text-transform: lowercase;
+    line-height: $font-size-h1;
+    height: $font-size-h1;
+    font-size: 2em;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    background-color: $brand-tertiary;
+    color: $body-bg;
+}
+
+
+
+.brand-colapsed {
+    @extend %brand;
+    position: fixed;
+    width: auto;
+    left: 0;
+    height: $font-size-h1;
+    width: $font-size-h1;
+    font-size: $font-size-h1;
+    line-height: $font-size-h1;
+    text-align: center;
+    float: left;
 }
 
 .brand {
@@ -28,7 +95,14 @@ $h2-background-position: ceil(($h2-big-background-size/-2));
     float: left;
 
      .char1 {
-        background-color: $brand-danger;
+        background-color: $brand-secondary;
+        color: $gray-base;
+    }
+
+    &:hover .char1 {
+        background-color: $brand-tertiary;
+        color: $body-bg;
+        text-decoration: none;
     }
 
     span {
@@ -57,7 +131,7 @@ header {
 }
 
 
-h1, h2 {
+%heading {
     text-align: center;
     margin: 0;
 
@@ -78,11 +152,17 @@ h1, h2 {
 }
 
 h1 {
-    @include blueprint-blackground($h1-big-background-size, $h1-small-background-size, $h1-background-position);
+    @extend %heading;
+    @include blueprint-background(
+        $h1-big-background-size, $h1-small-background-size, $h1-background-position
+    );
 }
 
 h2 {
-    @include blueprint-blackground($h2-big-background-size, $h2-small-background-size, $h2-background-position);
+    @extend %heading;
+    @include blueprint-background(
+        $h2-big-background-size, $h2-small-background-size, $h2-background-position
+    );
 }
 
 article {
@@ -119,19 +199,19 @@ blockquote {
 
 .images-column {
     img {
-        margin: 2em;
-        width: 80%;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
-.entry-content,
-.entry-summary {
-
-    &.has-picture {
-        border-left: 1px $brand-primary dashed;
-    }
+.entry-content {
+    border-left: 1px $brand-primary dashed;
 
     p {
         text-align: justify;
     }
+}
+
+.entry-summary {
+    @extend .entry-content;
 }

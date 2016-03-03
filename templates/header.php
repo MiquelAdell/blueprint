@@ -1,5 +1,17 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container-fluid">
+
+    <nav class="collapse navbar-collapse" role="navigation">
+      <a class="brand-colapsed" href="/">i</a>
+      <div class="container">
+        <?php
+        if (has_nav_menu('primary_navigation')) :
+          wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav']);
+        endif;
+        ?>
+      </div>
+    </nav>
+
     <h1 class="brand">
         <div class="holder">
           <a href="<?= esc_url(home_url('/')); ?>">
@@ -20,12 +32,6 @@
       </button>
     </div>
 
-    <nav class="collapse navbar-collapse" role="navigation">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav']);
-      endif;
-      ?>
-    </nav>
+
   </div>
 </header>

@@ -18,11 +18,11 @@
              );
 
       $images = get_posts($args);
-      $textCss = "col-sm-8 col-sm-offset-2";
+      $textCss = "col-sm-6 col-sm-offset-3";
       if($images) {
-          $textCss = "has-picture col-sm-8";
+          $textCss = "col-sm-6";
         ?>
-        <div class="images col-sm-4 images-column">
+        <div class="images col-sm-3 images-column">
           <?php foreach($images as $image) { ?>
             <img src="<?php echo wp_get_attachment_url($image->ID); ?>" alt="<?php echo $image->post_excerpt; ?>"></img>
           <?php } ?>
