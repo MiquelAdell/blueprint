@@ -47,7 +47,8 @@
     "storm2k/sagextras": "^1.1",
     "wpackagist-plugin/wp-optimize": "1.8.9.10",
     "wpackagist-plugin/easy-bootstrap-shortcodes": "^4.5",
-    "roots/wp-password-bcrypt": "^1.0"
+    "roots/wp-password-bcrypt": "^1.0",
+    "wpackagist-plugin/kau-boys-backend-localization": "^2.1"
   },
   "extra": {
     "installer-paths": {

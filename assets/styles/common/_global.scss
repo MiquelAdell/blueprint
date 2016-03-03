@@ -2,19 +2,26 @@ $h1-big-background-size: $font-size-h1;
 $h1-small-background-size: floor(($font-size-h1/5));
 $h1-background-position: floor(($h1-big-background-size/2));
 
-
 $h2-big-background-size: floor(($font-size-h2/5))*5;
 $h2-small-background-size: floor(($h2-big-background-size/5));
 $h2-background-position: ceil(($h2-big-background-size/-2));
 
-.brand {
-    text-transform: lowercase;
+@mixin blueprint-blackground($bigSize,$smallSize,$position) {
+    background-size: 1px $bigSize, $bigSize 1px, 1px $smallSize, $smallSize 1px;
+    background-position: 0 $position, $position 0, 0 $position, $position 0;
+    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
+              linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
+              linear-gradient($body-bg-fadest 1px, transparent 1px),
+              linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
+    background-color: $brand-primary;
 }
 
-.brand .holder {
-    display: table;
-       margin: 0 auto;
-
+.brand {
+    text-transform: lowercase;
+    .holder {
+        display: table;
+        margin: 0 auto;
+    }
 }
 
 .fit-text-holder {
@@ -53,7 +60,6 @@ header {
 h1, h2 {
     text-align: center;
     margin: 0;
-    background-color: $brand-primary;
 
     padding: 0.5em 0;
     color: $body-bg;
@@ -72,68 +78,25 @@ h1, h2 {
 }
 
 h1 {
-    background-size: 1px $h1-big-background-size,
-                     $h1-big-background-size 1px,
-                     1px $h1-small-background-size,
-                     $h1-small-background-size 1px;
-    background-position: 0 $h1-background-position,
-                         $h1-background-position 0,
-                         0 $h1-background-position,
-                         $h1-background-position 0;
-    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
-                      linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
-                      linear-gradient($body-bg-fadest 1px, transparent 1px),
-                      linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
+    @include blueprint-blackground($h1-big-background-size, $h1-small-background-size, $h1-background-position);
 }
 
 h2 {
-    background-size: 1px $h2-big-background-size,
-                     $h2-big-background-size 1px,
-                     1px $h2-small-background-size,
-                     $h2-small-background-size 1px;
-    background-position: 0 $h2-background-position,
-                         $h2-background-position 0,
-                         0 $h2-background-position,
-                         $h2-background-position 0;
-    background-image: linear-gradient($body-bg-faded 2px, transparent 2px),
-                      linear-gradient(90deg, $body-bg-faded 2px, transparent 2px),
-                      linear-gradient($body-bg-fadest 1px, transparent 1px),
-                      linear-gradient(90deg, $body-bg-fadest 1px, transparent 1px);
+    @include blueprint-blackground($h2-big-background-size, $h2-small-background-size, $h2-background-position);
 }
 
 article {
-    clear: both;
-
-    p, blockquote {
-        max-width: 35em;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+    .row {
+        margin-top: 1em;
+        margin-bottom: 1em;
     }
-}
+    p, blockquote {
 
-.entry-summary {
-    margin: 1em 0;
-    float: left;
-
-    p {
-        text-align: justify;
     }
 }
 
 .comments {
     clear: both;
-}
-
-
-.entry-content {
-    margin: 1em 0 3em 0;
-    float: left;
-    width: 100%;
-
-    p {
-        text-align: justify;
-    }
 }
 
 .comment-reply-title {
@@ -152,4 +115,23 @@ article {
 /* BLOCK QUOTE */
 blockquote {
 
+}
+
+.images-column {
+    img {
+        margin: 2em;
+        width: 80%;
+    }
+}
+
+.entry-content,
+.entry-summary {
+
+    &.has-picture {
+        border-left: 1px $brand-primary dashed;
+    }
+
+    p {
+        text-align: justify;
+    }
 }
