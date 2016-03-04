@@ -20,7 +20,18 @@
       init: function() {
         $('[data-toggle="tooltip"]').tooltip();
 
+        function adjustContainerPadding () {
+          var body = document.querySelector( "body" );
+          var footer = document.querySelector( "footer" );
+
+          body.style.paddingBottom = window.getComputedStyle( footer ).height;
+          return adjustContainerPadding;
+        }
+
         var resize_actions = function(){
+
+          adjustContainerPadding();
+
           $(".brand .fit-text-holder").lettering();
 
           $('.brand .fit-text-holder').each(function(){
@@ -37,9 +48,26 @@
               positions = positions.join(", ");
               target.css('background-position',positions);
           });
+
         };
         resize_actions();
-        $(window).on('resize',resize_actions);
+
+        function throttle ( method, waitTime ) {
+        		var working = false;
+        		return function () {
+        			if ( working ) {
+                return;
+              }
+        			working = true;
+        			setTimeout( function () {
+        				method(); working = false;
+        			}, waitTime );
+        		};
+        	}
+
+        window.addEventListener(
+            "resize", throttle( resize_actions(), 500 )
+        );
 
 
         var navbar_control = function(){

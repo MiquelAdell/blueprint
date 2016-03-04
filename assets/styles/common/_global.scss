@@ -228,6 +228,10 @@ article {
 }
 
 footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     @include blueprint-background( 50px, 10px,0,darken($brand-primary,30%), transparent);
     color: $body-bg;
@@ -255,4 +259,9 @@ footer {
     font-family: $font-family-sans-serif;
     text-align: center;
     padding: 1em;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
