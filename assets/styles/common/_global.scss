@@ -2,7 +2,7 @@
 
 @mixin blueprint-background(
     $bigSize: 50px, $smallSize: 10px, $position: -25px,
-    $color1: $brand-primary, $color2: $body-bg-faded, $color3: $body-bg-fadest
+    $color1: $brand-primary, $color2: rgba($body-bg,0.4), $color3: rgba($body-bg,0.2)
 ) {
     background-size: 1px $bigSize, $bigSize 1px, 1px $smallSize, $smallSize 1px;
     background-position: 0 $position, $position 0, 0 $position, $position 0;
@@ -15,24 +15,23 @@
 
 // Variables
 
-$h1-big-background-size: $font-size-h1;
+$h1-big-background-size: floor(($font-size-h1/5))*5;
 $h1-small-background-size: floor(($font-size-h1/5));
-$h1-background-position: floor(($h1-big-background-size/2));
+$h1-background-position: floor(($h1-big-background-size/-2));
 
 $h2-big-background-size: floor(($font-size-h2/5))*5;
-$h2-small-background-size: floor(($h2-big-background-size/5));
-$h2-background-position: ceil(($h2-big-background-size/-2));
-
+$h2-small-background-size: floor(($font-size-h2/5));
+$h2-background-position: floor(($h2-big-background-size/-2));
 
 // Placeholder selectors
-
-%brand-alternate {
-    background-color: $brand-tertiary;
-    color: $body-bg;
-    text-decoration: none;
-}
-
 %brand {
+
+    %brand-alternate {
+        background-color: $brand-tertiary;
+        color: $body-bg;
+        text-decoration: none;
+    }
+
     background-color: $brand-secondary;
     color: $gray-base;
     &:hover {
@@ -46,7 +45,7 @@ $h2-background-position: ceil(($h2-big-background-size/-2));
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     @include blueprint-background($color2: transparent);
-    border-bottom: 2px $body-bg-faded inset;
+    border-bottom: 2px rgba($body-bg,0.4) inset;
     font-family: $font-family-sans-serif;
     position: fixed;
     left: 0;
