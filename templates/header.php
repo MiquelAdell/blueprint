@@ -1,7 +1,7 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container-fluid">
 
-    <nav class="collapse navbar-collapse" role="navigation">
+    <nav class="collapse navbar-collapse" role="navigation" id="navbar-collapsed">
       <a class="brand-colapsed" href="/">i</a>
       <div class="container">
         <?php

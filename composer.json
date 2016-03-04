@@ -41,15 +41,15 @@
     "wpackagist-plugin/akismet": "^3.1",
     "wpackagist-plugin/post-type-switcher": "^1.5",
     "wpackagist-plugin/advanced-excerpt": "^4.2.3",
-    "wpackagist-plugin/wordpress-importer": "^0.6.1",
     "wpackagist-plugin/clean-html": "^1.1",
     "storm2k/sagextras": "^1.1",
     "wpackagist-plugin/wp-optimize": "1.8.9.10",
-    "wpackagist-plugin/easy-bootstrap-shortcodes": "^4.5",
     "roots/wp-password-bcrypt": "^1.0",
     "wpackagist-plugin/kau-boys-backend-localization": "^2.1",
-    "wpackagist-plugin/dynamic-featured-image": "^3.5",
-    "wpackagist-plugin/dnui-delete-not-used-image-wordpress": "^2.4"
+    "wpackagist-plugin/simple-social-icons": "^1.0"
+  },
+  "require-dev": {
+    "raveren/kint": "^1.0"
   },
   "extra": {
     "installer-paths": {

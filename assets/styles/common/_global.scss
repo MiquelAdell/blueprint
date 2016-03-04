@@ -24,14 +24,13 @@ $h2-small-background-size: floor(($font-size-h2/5));
 $h2-background-position: floor(($h2-big-background-size/-2));
 
 // Placeholder selectors
+%brand-alternate {
+    background-color: $brand-tertiary;
+    color: $body-bg;
+    text-decoration: none;
+}
+
 %brand {
-
-    %brand-alternate {
-        background-color: $brand-tertiary;
-        color: $body-bg;
-        text-decoration: none;
-    }
-
     background-color: $brand-secondary;
     color: $gray-base;
     &:hover {
@@ -43,13 +42,19 @@ $h2-background-position: floor(($h2-big-background-size/-2));
     }
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+#navbar-collapsed {
     @include blueprint-background($color2: transparent);
     border-bottom: 2px rgba($body-bg,0.4) inset;
     font-family: $font-family-sans-serif;
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
+    display: none !important;
+    transition: all 2s linear;
+    &.active {
+        display: block !important;
+    }
 }
 
 
@@ -66,8 +71,6 @@ $h2-background-position: floor(($h2-big-background-size/-2));
     background-color: $brand-tertiary;
     color: $body-bg;
 }
-
-
 
 .brand-colapsed {
     @extend %brand;
@@ -113,6 +116,11 @@ $h2-background-position: floor(($h2-big-background-size/-2));
 }
 
 header {
+
+    &.banner {
+        margin-bottom: 100px;
+    }
+
     .container-fluid {
         padding: 0;
     }
@@ -160,7 +168,8 @@ h1 {
 h2 {
     @extend %heading;
     @include blueprint-background(
-        $h2-big-background-size, $h2-small-background-size, $h2-background-position
+        $h2-big-background-size, $h2-small-background-size, $h2-background-position,
+        darken($brand-primary,20%), transparent
     );
 }
 
@@ -191,14 +200,10 @@ article {
 }
 
 
-/* BLOCK QUOTE */
-blockquote {
-
-}
-
 .images-column {
     img {
         width: 100%;
+        height: auto;
         box-sizing: border-box;
     }
 }
@@ -209,8 +214,45 @@ blockquote {
     p {
         text-align: justify;
     }
+
+    blockquote {
+        border-left: 1px $brand-primary dashed;
+        p {
+            text-align: left;
+        }
+    }
 }
 
 .entry-summary {
     @extend .entry-content;
+}
+
+footer {
+
+    @include blueprint-background( 50px, 10px,0,darken($brand-primary,30%), transparent);
+    color: $body-bg;
+    font-family: $font-family-sans-serif;
+
+    .footer-column  {
+        padding: 1em;
+    }
+
+    a {
+        color: inherit;
+        font-weight: bold;
+        &:hover {
+            color: inherit;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+    .simple-social-icons ul li {
+        display: inline;
+    }
+}
+
+.nav-previous {
+    font-family: $font-family-sans-serif;
+    text-align: center;
+    padding: 1em;
 }

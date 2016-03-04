@@ -18,25 +18,48 @@
     // All pages
     'common': {
       init: function() {
-        $(".brand .fit-text-holder").lettering();
+        $('[data-toggle="tooltip"]').tooltip();
 
-        $('.brand .fit-text-holder').each(function(){
-            var target = $(this).closest('.brand');
-            var new_position = $('.brand .fit-text-holder').position().left-1;
-            var positions = target.css('background-position');
-            positions = positions.split(", ");
-            positions[1] = positions[1].split(" ");
-            positions[3] = positions[3].split(" ");
-            positions[1][0] = new_position+"px";
-            positions[3][0] = new_position+"px";
-            positions[1] = positions[1].join(" ");
-            positions[3] = positions[3].join(" ");
-            positions = positions.join(", ");
-            console.info(positions);
-            target.css('background-position',positions);
-        });
+        var resize_actions = function(){
+          $(".brand .fit-text-holder").lettering();
 
-        // fitText(document.getElementById('fittext'), 1.2)
+          $('.brand .fit-text-holder').each(function(){
+              var target = $(this).closest('.brand');
+              var new_position = $('.brand .fit-text-holder').position().left-1;
+              var positions = target.css('background-position');
+              positions = positions.split(", ");
+              positions[1] = positions[1].split(" ");
+              positions[3] = positions[3].split(" ");
+              positions[1][0] = new_position+"px";
+              positions[3][0] = new_position+"px";
+              positions[1] = positions[1].join(" ");
+              positions[3] = positions[3].join(" ");
+              positions = positions.join(", ");
+              target.css('background-position',positions);
+          });
+        };
+        resize_actions();
+        $(window).on('resize',resize_actions);
+
+
+        var navbar_control = function(){
+          // display or show navbar on scroll
+          var navbar = $('#navbar-collapsed'),
+              brandbar = $('.brand'),
+          		distance = brandbar.position().top + brandbar.outerHeight(),
+              $window = $(window);
+
+          $window.scroll(function() {
+              if ($window.scrollTop() >= distance) {
+                  navbar.addClass('active');
+              } else {
+                  navbar.removeClass('active');
+              }
+          });
+        };
+        navbar_control();
+
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
