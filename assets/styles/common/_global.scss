@@ -42,6 +42,10 @@ $h2-background-position: floor(($h2-big-background-size/-2));
     }
 }
 
+img {
+    max-width: 100%;
+}
+
 #navbar-collapsed {
     @include blueprint-background($color2: transparent);
     border-bottom: 2px rgba($body-bg,0.4) inset;
