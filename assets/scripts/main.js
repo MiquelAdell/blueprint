@@ -52,21 +52,10 @@
         };
         resize_actions();
 
-        function throttle ( method, waitTime ) {
-        		var working = false;
-        		return function () {
-        			if ( working ) {
-                return;
-              }
-        			working = true;
-        			setTimeout( function () {
-        				method(); working = false;
-        			}, waitTime );
-        		};
-        	}
+
 
         window.addEventListener(
-            "resize", throttle( resize_actions(), 500 )
+            "resize", resize_actions
         );
 
 
