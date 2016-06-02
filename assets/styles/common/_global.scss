@@ -14,7 +14,7 @@
 }
 
 // Variables
-//MAB: //TODO:
+
 $h1-big-background-size: floor(($font-size-h1/5))*5;
 $h1-small-background-size: floor(($font-size-h1/5));
 $h1-background-position: floor(($h1-big-background-size/-2));
@@ -22,7 +22,6 @@ $h1-background-position: floor(($h1-big-background-size/-2));
 $h2-big-background-size: floor(($font-size-h2/5))*5;
 $h2-small-background-size: floor(($font-size-h2/5));
 $h2-background-position: floor(($h2-big-background-size/-2));
-
 
 // Placeholder selectors
 %brand-alternate {
@@ -41,26 +40,6 @@ $h2-background-position: floor(($h2-big-background-size/-2));
     &:active {
         @extend %brand-alternate;
     }
-}
-
-
-html {
-  position: relative;
-  min-height: 100%;
-  font-size: $font-size-base;
-}
-
-body {
-  font-size: $font-size-base;
-  @media screen and (max-width: $break-large) {
-    font-size: 17px;
-  }
-  @media screen and (max-width: $break-medium) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: $break-small) {
-    font-size: 15px;
-  }
 }
 
 img {
@@ -102,10 +81,10 @@ img {
     position: fixed;
     width: auto;
     left: 0;
-    height: 4rem;
-    width: 4rem;
-    font-size: 4rem;
-    line-height: 4rem;
+    height: $font-size-h1;
+    width: $font-size-h1;
+    font-size: $font-size-h1;
+    line-height: $font-size-h1;
     text-align: center;
     float: left;
 }
@@ -284,4 +263,9 @@ footer {
     font-family: $font-family-sans-serif;
     text-align: center;
     padding: 1em;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
