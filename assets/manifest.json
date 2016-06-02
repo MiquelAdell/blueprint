@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://src.wordpress-develop.dev/"
+    "devUrl": "http://insonorizate.dev/"
   }
 }
