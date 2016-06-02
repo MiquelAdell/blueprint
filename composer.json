@@ -46,7 +46,8 @@
     "wpackagist-plugin/wp-optimize": "1.8.9.10",
     "roots/wp-password-bcrypt": "^1.0",
     "wpackagist-plugin/kau-boys-backend-localization": "^2.1",
-    "wpackagist-plugin/simple-social-icons": "^1.0"
+    "wpackagist-plugin/simple-social-icons": "^1.0",
+    "wpackagist-plugin/jetpack": "^3.9",
   },
   "require-dev": {
     "raveren/kint": "^1.0"
